@@ -1,13 +1,14 @@
 package com.assignment.restaurant.app.controller;
 
 import com.assignment.restaurant.app.model.ReservationRequest;
+import com.assignment.restaurant.app.model.ReservationResponse;
 import com.assignment.restaurant.app.service.ReservationService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping("/api/user/bookings")
-@CrossOrigin
+@RequestMapping("/api/reservations")
+@CrossOrigin(origins = "http://localhost:4200")
 public class UserController {
 
     private final ReservationService bookingService;
@@ -17,9 +18,11 @@ public class UserController {
     }
 
     @PostMapping
-    public ResponseEntity<?> reserveTable(@RequestBody ReservationRequest bookingRequest) {
+    public ResponseEntity<ReservationResponse> reserveTable(@RequestBody ReservationRequest bookingRequest) {
         bookingService.saveReservation(bookingRequest);
-        return ResponseEntity.ok("Reservation created successfully");
+        ReservationResponse response = new ReservationResponse("Reservation created successfully");
+
+        return ResponseEntity.ok(response);
     }
 
 
