@@ -19,7 +19,7 @@ public class AdminController {
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<Reservation> getBooking(@PathVariable Long id) {
+    public ResponseEntity<Reservation> getBooking(@PathVariable String id) {
         Reservation booking = bookingService.getBookingById(id);
         return ResponseEntity.ok(booking);
     }
@@ -31,13 +31,13 @@ public class AdminController {
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<Reservation> updateBooking(@PathVariable Long id, @RequestBody Reservation bookingRequest) {
+    public ResponseEntity<Reservation> updateBooking(@PathVariable String id, @RequestBody Reservation bookingRequest) {
         Reservation updatedBooking = bookingService.updateBooking(id, bookingRequest);
         return ResponseEntity.ok(updatedBooking);
     }
 
     @DeleteMapping("/{id}")
-    public ResponseEntity<Void> deleteBooking(@PathVariable Long id) {
+    public ResponseEntity<Void> deleteBooking(@PathVariable String id) {
         bookingService.deleteBooking(id);
         return ResponseEntity.noContent().build();
     }

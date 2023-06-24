@@ -2,7 +2,7 @@ package com.assignment.restaurant.app.service;
 
 import com.assignment.restaurant.app.entity.Reservation;
 import com.assignment.restaurant.app.model.ReservationRequest;
-import com.assignment.restaurant.app.repository.BookingRepository;
+import com.assignment.restaurant.app.repository.ReservationRepository;
 import com.assignment.restaurant.app.exception.NotFoundException;
 import org.springframework.stereotype.Service;
 
@@ -10,15 +10,15 @@ import java.util.List;
 
 @Service
 public class ReservationService {
-    private final BookingRepository bookingRepository;
+    private final ReservationRepository reservationRepository;
 
-    public ReservationService(BookingRepository bookingRepository) {
-        this.bookingRepository = bookingRepository;
+    public ReservationService(ReservationRepository reservationRepository) {
+        this.reservationRepository = reservationRepository;
     }
 
     public void saveReservation(ReservationRequest bookingRequest) {
         Reservation reservation = mapToReservationEntity(bookingRequest);
-        bookingRepository.save(reservation);
+        reservationRepository.save(reservation);
     }
 
     private Reservation mapToReservationEntity(ReservationRequest bookingRequest) {
@@ -34,27 +34,27 @@ public class ReservationService {
         return reservation;
     }
 
-    public Reservation updateBooking(Long id, Reservation bookingRequest) {
+    public Reservation updateBooking(String id, Reservation bookingRequest) {
         // Perform validation and business logic
         Reservation existingBooking = getBookingById(id);
         // Update existingBooking with the new values from bookingRequest
-        return bookingRepository.save(existingBooking);
+        return reservationRepository.save(existingBooking);
     }
 
-    public void deleteBooking(Long id) {
+    public void deleteBooking(String id) {
         // Perform validation and business logic
         Reservation booking = getBookingById(id);
-        bookingRepository.delete(booking);
+        reservationRepository.delete(booking);
     }
 
-    public Reservation getBookingById(Long id) {
+    public Reservation getBookingById(String id) {
         // Perform validation and business logic
-        return bookingRepository.findById(id)
+        return reservationRepository.findById(id)
                 .orElseThrow(() -> new NotFoundException("Booking not found"));
     }
 
     public List<Reservation> getAllBookings() {
         // Perform validation and business logic
-        return bookingRepository.findAll();
+        return reservationRepository.findAll();
     }
 }
