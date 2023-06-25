@@ -11,6 +11,7 @@ The Restaurant Reservation Table Booking App is a Java-based web application bui
     - Customer name
     - Email
     - Mobile number
+    - Location
 - View the details of a single reservation.
 - View the details of all reservations.
 - Update an existing reservation.
