@@ -1,5 +1,6 @@
 package com.assignment.restaurant.app.entity;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -39,6 +40,7 @@ public class Reservation {
 
     @Column(name = "reservation_date")
     @JsonProperty("reservationDate")
+    @JsonFormat(pattern = "yyyy-MM-dd")
     private LocalDate reservationDate;
 
     @Column(name = "no_of_guests")
