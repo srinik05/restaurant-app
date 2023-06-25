@@ -12,6 +12,12 @@ import java.util.UUID;
 @ControllerAdvice
 @RestController
 public class CustomExceptionHandler extends ResponseEntityExceptionHandler {
+
+    /**
+     * Exception handler for NotFoundException
+     * @param ex The NotFoundException instance
+     * @return ResponseEntity with error details and HTTP status 404
+     */
     @ExceptionHandler(NotFoundException.class)
     public ResponseEntity<Error> handleNotFoundException(NotFoundException ex) {
         Error error = new Error("404", ex.getMessage(), UUID.randomUUID().toString());

@@ -14,6 +14,10 @@ import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
 @EnableWebSecurity
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
+    /**
+     * Bean definition for CorsConfigurationSource
+     * @return CorsConfigurationSource instance
+     */
     @Bean
     public CorsConfigurationSource corsConfigurationSource() {
         CorsConfiguration configuration = new CorsConfiguration();
@@ -25,12 +29,15 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         return source;
     }
 
+    /**
+     * Configuration for HTTP security
+     */
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http.authorizeRequests()
                 .antMatchers("/api/reservations").permitAll() // Allow unauthenticated access to /api/reservations
                 .anyRequest().authenticated()
                 .and()
-                .csrf().disable(); // Disable CSRF protection for simplicity (not recommended in production)
+                .csrf().disable(); // Disable CSRF protection for simplicity
     }
 }

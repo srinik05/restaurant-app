@@ -17,6 +17,11 @@ public class UserController {
         this.bookingService = bookingService;
     }
 
+    /**
+     * Reserve a table
+     * @param bookingRequest The reservation details
+     * @return ResponseEntity with the reservation response if successful, or an error response
+     */
     @PostMapping
     public ResponseEntity<ReservationResponse> reserveTable(@RequestBody ReservationRequest bookingRequest) {
         bookingService.saveReservation(bookingRequest);

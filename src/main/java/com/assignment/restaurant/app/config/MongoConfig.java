@@ -19,11 +19,19 @@ public class MongoConfig {
     @Value("${spring.data.mongodb.database}")
     private String mongoDatabase;
 
+    /**
+     * Bean definition for MongoClient
+     * @return MongoClient instance
+     */
     @Bean
     public MongoClient mongoClient() {
         return MongoClients.create(mongoUrl);
     }
 
+    /**
+     * Bean definition for MongoTemplate
+     * @return MongoTemplate instance
+     */
     @Bean
     public MongoTemplate mongoTemplate() {
         return new MongoTemplate(mongoClient(), mongoDatabase);
