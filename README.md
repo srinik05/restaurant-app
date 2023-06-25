@@ -53,20 +53,22 @@ These instructions will help you set up and run the Restaurant Reservation Table
 3.Run the MongoDB service on your local machine.
 4. Update the MongoDB connection details in application.properties. Specify the MongoDB host, port, and database name:
 
-### spring.data.mongodb.host=localhost
-### spring.data.mongodb.port=27017
-### spring.data.mongodb.database=restaurant
+ ```shell
+spring.data.mongodb.host=localhost
+spring.data.mongodb.port=27017
+spring.data.mongodb.database=restaurant
 
 5. Build the Docker image:
-
-### docker build -t restaurant-reservation-app
+ ```shell
+docker build -t restaurant-reservation-app
 
 6. Run the Docker container:
-### docker run -p 8080:8080 restaurant-reservation-app
+ ```shell
+docker run -p 8080:8080 restaurant-reservation-app
 
 Image will create from the above step and we can ready to deploy into 'cloud'
-
-### mvn spring-boot:run
+ ```shell
+mvn spring-boot:run
 The application should now be running at http://localhost:8080.
 
 ## API Endpoints
