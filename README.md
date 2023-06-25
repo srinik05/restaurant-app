@@ -60,17 +60,17 @@ spring.data.mongodb.database=restaurant
 
 5. Build the Docker image:
 
-```shell
+ ```shell
 docker build -t restaurant-reservation-app
 
 6. Run the Docker container:
 
-```shell
+ ```shell
 docker run -p 8080:8080 restaurant-reservation-app
 
 Image will create from the above step and we can ready to deploy into 'cloud'
 
-```shell
+ ```shell
 mvn spring-boot:run
 
 The application should now be running at http://localhost:8080.
