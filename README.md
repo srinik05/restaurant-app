@@ -69,7 +69,7 @@ Image will create from the above step and we can ready to deploy into 'cloud'
 ### mvn spring-boot:run
 The application should now be running at http://localhost:8080.
 
-API Endpoints
+## API Endpoints
 The following API endpoints are available:
 
 ### POST /api/reservations - Create a new table reservation.
@@ -91,7 +91,7 @@ The application implements exception handling to provide appropriate error respo
 ## Testing
 Unit tests and integration tests have been provided to ensure the functionality of the application. You can run the tests using Maven:
 
-'mvn test'
+### mvn test
 
 ## Future Enhancements
 Add authentication and authorization to secure the API endpoints.
