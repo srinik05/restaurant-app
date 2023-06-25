@@ -1,4 +1,4 @@
-# Restaurant Reservation Table Booking App
+# Reservation Table Booking App
 
 The Restaurant Reservation Table Booking App is a Java-based web application built with Spring Boot and MongoDB. It allows users to make table reservations for a restaurant.
 
